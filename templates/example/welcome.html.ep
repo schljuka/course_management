@@ -1,25 +1,10 @@
 % layout 'default';
 % title 'Welcome';
-<h2><%= $msg %></h2>
-<p>
-  This page was generated from the template "templates/example/welcome.html.ep"
-  and the layout "templates/layouts/default.html.ep",
-  <%= link_to 'click here' => url_for %> to reload the page or
-  <%= link_to 'here' => '/index.html' %> to move forward to a static page.
-  <% use Data::Dumper; %>
- 
-<ul>
-  <% for my $course_ref (@{ $cc->{courses} }) { %>
-    <% for my $exercise_ref (@{ $course_ref->{exercises} }) { %>
-      <li>
-        <a href="<%= $exercise_ref->{url} %>">
-          <%= $exercise_ref->{title} %> 
-        </a>
-      </li>
-    <% } %>
-  <% } %>
-</ul>
+<% use Data::Dumper; %>
 
+<h2>Welcome to the Course Management App</h2>
+
+<p>
 <ul>
   <% for my $course_ref (@{ $cc->{courses} }) { %>
     <li><a href="/course/<%= $course_ref->{id} %>"><%= $course_ref->{name} %></a></li>
@@ -29,6 +14,5 @@
 <pre>
    <%= Dumper $cc %>
 </pre>
-
 </p>
  

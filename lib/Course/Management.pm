@@ -2,7 +2,6 @@ package Course::Management;
 use Mojo::Base 'Mojolicious', -signatures;
 use YAML qw(LoadFile);
 use Mojo::Home;
-use Mojo::Home;
 
 # This method will run once at server start
 sub startup ($self) {
@@ -24,6 +23,7 @@ sub startup ($self) {
   # Normal route to controller
   $r->get('/' => {cc=>$config_course})->to('example#welcome');
   $r->get('/course/:id' => {cc=>$config_course})->to('course#list_exercises');
+  $r->post('/upload' => {cc=>$config_course})->to('course#upload');
 }
  
 1;
