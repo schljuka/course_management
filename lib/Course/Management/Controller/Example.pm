@@ -5,8 +5,14 @@ use Mojo::Base 'Mojolicious::Controller', -signatures;
 sub welcome ($self) {
 
   # Render template "example/welcome.html.ep" with message
-  $self->render(msg => 'Welcome to the Mojolicious real-time web framework!');
+   my $cc = $self->course_config;
+    $self->render(cc => $cc);
+  # $self->render(msg => 'Welcome to the Mojolicious real-time web framework!');
   # $self->render(json => {name=>"Pera"}, status => 200);
+
+
+
+  
 }
 
 1;
