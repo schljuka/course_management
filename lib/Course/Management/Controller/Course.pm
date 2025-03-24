@@ -21,10 +21,7 @@ sub upload ($self){
   $home->detect;
 
   my $upload = $self->req->upload('upload');
-  # my $upload = Mojo::Upload->new;
-  #say $upload->filename;
-  #my $dir = $self->app->home->child('data', $id);
-  my $dir->$home->child('data', $id);
+  my $dir->$home->child('data','hello');
   $dir->make_path;
   # my $filename = $dir->child('a.txt');
   my $filename = $dir->child($upload->filename);

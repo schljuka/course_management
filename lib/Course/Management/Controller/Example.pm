@@ -6,12 +6,8 @@ sub welcome ($self) {
 
   # Render template "example/welcome.html.ep" with message
    my $cc = $self->course_config;
-    $self->render(cc => $cc);
-  # $self->render(msg => 'Welcome to the Mojolicious real-time web framework!');
+   $self->render(msg => 'Welcome to the Mojolicious real-time web framework!', cc=>$cc);
   # $self->render(json => {name=>"Pera"}, status => 200);
-
-
-
   
 }
 
