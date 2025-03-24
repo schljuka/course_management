@@ -19,13 +19,14 @@ sub upload ($self){
   my ($course) = grep { $_->{id} eq $id } @{ $cc->{courses} };
   die $id if not $course;
   
-  my $home=Mojo::Home->new;
+  my $home = $self->app->home;
   $home->detect;
 
   my $upload = $self->req->upload('upload');
   # my $upload = Mojo::Upload->new;
   #say $upload->filename;
-  my $dir = $home->child('data', $id);
+  #my $dir = $self->app->home->child('data', $id);
+  my $dir->$home->child('data','hello');
   $dir->make_path;
   # my $filename = $dir->child('a.txt');
   my $filename = $dir->child($upload->filename);
