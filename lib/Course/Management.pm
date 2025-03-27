@@ -38,7 +38,6 @@ sub startup ($self) {
     my ($course_ref) = grep { $_-> {id} eq $course_id } @$course_config;
     return if not defined $course_ref;
     return @{$course_ref->{exercises}};
-    # return map {$_->{url}=>$_->{title}} @{$course_ref->{exercises}};
   });
 
   # Configure the application
