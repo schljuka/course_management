@@ -4,8 +4,6 @@ use List::MoreUtils qw(uniq);
 use List::Util qw(any); 
 use Data::UUID;
 
-
-
 sub welcome ($self) {
    $self->render();
 }
@@ -25,9 +23,7 @@ sub login ($self){
    return $self->render(email=>$email, success=>$success)
    };
 
-   my $ug = Data::UUID->new;
-   my $uuid = $ug->create;
-   my $code = $ug->to_string($uuid); 
+   my $code = _get_code();
    $self->app->log->info($code);
 
    sendmail($email, $code);
@@ -35,11 +31,15 @@ sub login ($self){
    $self->render(email=>$email,success=>$success, code=>$code)
 }
 
-
-
 sub sendmail {
-  my ($email, $code)=@;	
+  return;
+}
 
+sub _get_code{
+  my $ug = Data::UUID->new;
+  my $uuid = $ug->create;
+  my $code = $ug->to_string($uuid); 
+  return $code;
 }
 
 
