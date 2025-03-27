@@ -1,24 +1,41 @@
-courses:
-  - name: Programming Bootcamp 2021.10
-    id: bootcamp-2021-10
-    students:
-      - name: Foo
-        email: gabor@code-maven.com
-      - name: Bar
-        email: gabor@perlmaven.com
-    exercises:
-      - title: Hello world
-        url: https://slides.code-maven.com/perl/exercise-hello-world
-      - title: Rectangular
-        url: https://slides.code-maven.com/perl/exercise-rectangular
-
-  - name: Advanced 2021.06
-    id: advanced-2021-10
-    students:
-      - name: Foo
-        email: gabor@code-maven.com
-      - name: Advanced Bar
-        email: other@perlmaven.com
-    exercises:
-      - title: Test blogs.perl.org
-        url: https://slides.code-maven.com/perl/exercise-blogs-perl-org.html
+- name: Programming Bootcamp 2021.10
+  id: bootcamp-2021-10
+  students:
+    - name: Foo
+      email: nljuka@yahoo.com
+    - name: Bar
+      email: gabor@perlmaven.com
+  exercises:
+    - title: Hello world
+      url: https://code-maven.com/slides/perl/exercise-hello-world
+      files:
+        - hello_world.pl
+    - title: Rectangular
+      url: https://code-maven.com/slides/perl/exercise-rectangular
+      files:
+        - rectangle.pl
+        - rectangle.yml
+- name: Advanced 2021.06
+  id: advanced-2021-06
+  students:
+    - name: Foo
+      email: gabor@code-maven.com
+    - name: Advanced Bar
+      email: other@perlmaven.com
+  exercises:
+    - title: test blogs.perl.org
+      url: https://code-maven.com/slides/perl/exercise-blogs-perl-org
+      files:
+        - test_blogs.pl
+        - test_blogs.yaml
+- name: Another course
+  id: another-date
+  students:
+    - name: Advanced Bar
+      email: other@perlmaven.com
+  exercises:
+    - title: test blogs.perl.org
+      url: https://code-maven.com/slides/perl/exercise-blogs-perl-org
+      files:
+        - test_blogs.pl
+        - test_blogs.yaml

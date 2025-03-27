@@ -1,6 +1,7 @@
 package Course::Management;
 use Mojo::Base 'Mojolicious', -signatures;
 use YAML qw(LoadFile);
+use List::Util qw(any); 
 
 # This method will run once at server start
 sub startup ($self) {
@@ -12,8 +13,26 @@ sub startup ($self) {
   $home->detect;
 
   my $course_config = LoadFile($home->child($config->{course_config}));
+
   $self->helper(course_config => sub { state $course_config_data = $course_config });
 
+  $self->helper(courses => sub($c, $student_email = undef) {
+    my %courses;  
+    my %student_courses;  
+    for my $course (@$course_config) {
+      $courses{$course->{id}} = $course->{name};
+    }
+    if ($student_email) {    
+       for my $course (@$course_config) {
+         if (any {$_->{email} eq $student_email} @{ $course->{students} }) {
+             $student_courses{$course->{id}} = $course->{name};
+         }
+       }   
+       return %student_courses; 
+    } else {
+       return %courses;  
+    }
+  });
 
   # Configure the application
   $self->secrets($config->{secrets});

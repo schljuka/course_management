@@ -1,10 +1,7 @@
 % layout 'default';
 % title 'Welcome';
-<% use Data::Dumper; %>
 
 <h2>Welcome to the Course Management App</h2>
-
-
 <p>
 
 <form method="POST" action="/login">
@@ -14,13 +11,11 @@
 
 
 <ul id="courses">
-  <% for my $course_ref (@{ $cc->{courses} }) { %>
-    <li id="<%= $course_ref->{id} %>" ><a href="/course/<%= $course_ref->{id} %>"><%= $course_ref->{name} %></a></li>
-  <% } %>
+  % my %courses = courses;
+  % for my $course_id (sort keys %courses) { 
+    <li id="<%= $course_id %>" ><a href="/course/<%= $course_id %>"><%= $courses{$course_id} %></a></li>
+  % } 
 </ul>
 
-<pre>
-   <%= Dumper $cc %>
-</pre>
 </p>
  
