@@ -3,6 +3,5 @@
 
 
 <p>
-Uploaded. Go back to <a href="/course/<%= $course->{id} %>"> <%= $course->{name} %></a>
+    Uploaded. Go back to <a href="/course/<%= $course->{id} %>"> <%= $course->{name} %></a>
 </p>
- 
