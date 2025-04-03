@@ -5,7 +5,7 @@ use Data::UUID;
 use YAML qw(DumpFile LoadFile);
 
 sub welcome ($self) {
-  # return $self->redirect_to('/course/') if $self->session('email');
+    return $self->redirect_to('/course/') if $self->session('email');
     $self->render();
 }
 
@@ -15,7 +15,6 @@ sub login ($self) {
     $email =~ s/^\s+//;
     $email =~ s/\s+$//;
     my @emails = uniq map {$_->{email}} map {@{ $_->{students} }} @$cc;
-    push @emails, $self->app->config('admin_email');
     my $success = any { $_ eq $email } @emails;
     $self->app->log->info($email);
     if (not $success) {
@@ -73,7 +72,7 @@ sub login_get ($self) {
     $self->session(expiration => 60*60*24*100);
     $self->session(email => $logins->{$code}{email});
 
-    delete $logins->{$code}to;
+    delete $logins->{$code};
     DumpFile($filename, $logins);
 
     #$self->render(message => '');
@@ -93,4 +92,3 @@ sub _get_code {
 
 
 1;
-

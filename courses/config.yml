@@ -19,7 +19,7 @@
   id: advanced-2021-06
   students:
     - name: Foo
-      email: gabor@code-maven.com
+      email: nljuka@yahoo.com
     - name: Advanced Bar
       email: other@perlmaven.com
   exercises:
@@ -32,7 +32,7 @@
   id: another-date
   students:
     - name: Advanced Bar
-      email: other@perlmaven.com
+      email: other@yahoo.com.com
   exercises:
     - title: test blogs.perl.org
       url: https://code-maven.com/slides/perl/exercise-blogs-perl-org
