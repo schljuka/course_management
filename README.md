@@ -1,6 +1,4 @@
-
 # Courses
-
 
 ## Docker
 
@@ -13,7 +11,6 @@ docker run --rm courses prove -l
 ```
 
 See the `run` file.
-
 
 ## Docker Compose
 
@@ -38,4 +35,3 @@ redirect to the list of courses.
 ## Maybe TODO
 
 If the user is only listed in one course, after login and from the main page redirect to that course.
-
